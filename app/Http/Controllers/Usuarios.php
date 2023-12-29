@@ -18,6 +18,5 @@ class Usuarios extends Controller
     function createUser(registerUser $datos){
         $info = Usuario::create($datos->all());
         dd($info);
-        return;
     }
 }
