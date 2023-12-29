@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Usuarios extends Controller
 {
-    function pintarRegistro(){
+    function drawSingup(){
         $tipos = DB::table("tiposusuario")->select("id", "nombre")->get();
         return view("signUp", ["tipos" => $tipos]);
     }
