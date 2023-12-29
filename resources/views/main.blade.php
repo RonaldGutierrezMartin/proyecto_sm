@@ -9,8 +9,7 @@
 <body>
     @if (@isset(session("user")))
         {{session("user")}}
-    @else
-        {{redirect("login")}}
+        
     @endif
     
 </body>
