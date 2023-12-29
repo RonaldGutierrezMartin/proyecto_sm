@@ -21,6 +21,7 @@ class registerUser extends FormRequest
      */
     public function rules(): array
     {
+        /* regex:^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$ PARA LA CONTRASENIA */
         return [
             "email" => ["unique:usuarios,email", "required"],
             "nombre" =>["required"],
