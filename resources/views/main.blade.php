@@ -7,7 +7,7 @@
     <title>Main</title>
 </head>
 <body>
-    @if (@isset(session("user")))
+    @if (null != session("user"))
         {{session("user")}}
         
     @endif
