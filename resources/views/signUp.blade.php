@@ -8,7 +8,7 @@
 </head>
 <body>
     {{-- @dd($tipos) --}}
-    <form action="{{route("register")}}" method="POST" id="formularioSignUp">
+    <form action="{{route('register')}}" method="POST" id="formularioSignUp">
         @csrf
         <label for="email">Email: </label><input type="email" name="email" >
         <label for="nombre">Nombre: </label><input type="text" name="nombre" >
