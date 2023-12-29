@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger("id_tipo");
             $table->string("nombre");
             $table->string("primerApellido");
-            $table->string("segundoApellido");
+            $table->string("segundoApellido")->nullable();
             $table->string("email")->unique();
             $table->string("password");
             $table->timestamps();
