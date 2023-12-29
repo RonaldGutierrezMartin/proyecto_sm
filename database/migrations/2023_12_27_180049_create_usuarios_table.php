@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("id_tipo");
-            $table->string("Nombre");
+            $table->string("nombre");
             $table->string("primerApellido");
             $table->string("segundoApellido");
             $table->string("email")->unique();
