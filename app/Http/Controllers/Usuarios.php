@@ -12,4 +12,5 @@ class Usuarios extends Controller
         $tipos = DB::table("tiposusuario")->select("id", "nombre")->get();
         return view("signUp", ["tipos" => $tipos]);
     }
+
 }
