@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Route::get("/login", function(){
     return view("logIn");
-});
+})->name("login");
 
 Route::get('/signup', [Usuarios::class ,"drawSignUp"])->name("signup");
 

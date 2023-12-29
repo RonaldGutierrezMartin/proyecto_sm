@@ -28,9 +28,23 @@
     </form>
 
     <div id="divErrors">
+        @error('email')
+            {{$message}}
+        @enderror
         @error('nombre')
             {{$message}}
         @enderror
+        @error('primerApellido')
+            {{$message}}
+        @enderror
+        @error('password')
+            {{$message}}
+        @enderror
+        @error('paswordCheck')
+            {{$message}}
+        @enderror
+        
+        
     </div>
 </body>
 </html>

@@ -10,7 +10,11 @@
     
     <form action="" method="POST">
         @csrf
-
+        @if (@isset($created)
+            <p id="pCreated">{{$created}}</p>
+        @endisset)
+            
+        @endif
         <input type="email" name="email">
         <input type="password" name="password">
         <input type="submit" value="Log in">
