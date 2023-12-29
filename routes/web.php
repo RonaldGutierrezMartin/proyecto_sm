@@ -20,9 +20,11 @@ Route::get('/', function () {
 });
 
 
-Route::get("/logIn", function(){
+Route::get("/login", function(){
     return view("logIn");
 });
 
-Route::get('/signUp', [Usuarios::class ,"drawSignUp"])->name("signUp");
+Route::get('/signup', [Usuarios::class ,"drawSignUp"])->name("signup");
+
+Route::post('/register', [Usuarios::class ,"createUser"])->name("register");
 

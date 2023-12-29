@@ -7,12 +7,14 @@
     <title>Log in</title>
 </head>
 <body>
+    
     <form action="" method="POST">
         @csrf
+
         <input type="email" name="email">
         <input type="password" name="password">
         <input type="submit" value="Log in">
-        <button><a href="{{route("signUp")}}">Create Account</a></button>
+        <button><a href="{{route("signup")}}">Create Account</a></button>
     </form>
 </body>
 </html>
