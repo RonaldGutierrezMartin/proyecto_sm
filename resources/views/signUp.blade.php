@@ -27,7 +27,7 @@
         <input type="submit" value="Sign Up">
     </form>
 
-    <div id="divErrors">
+    <div class="divErrors">
         @error('email')
             {{$message}}
         @enderror

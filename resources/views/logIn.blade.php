@@ -8,17 +8,23 @@
 </head>
 <body>
     
-    <form action="" method="POST">
+    <form action="{{route('verify')}}" method="POST" class="formLogin">
         @csrf
-        @if (@isset($created)
-            <p id="pCreated">{{$created}}</p>
-        @endisset)
-            
-        @endif
-        <input type="email" name="email">
-        <input type="password" name="password">
+        <label for="email">Email: </label><input type="email" name="email">
+        <label for="password">Password: </label><input type="password" name="password">
         <input type="submit" value="Log in">
         <button><a href="{{route("signup")}}">Create Account</a></button>
     </form>
+    <div class="divErrors">
+        @if (@isset($created))
+            <p id="pCreated">{{$created}}</p>
+        @endif
+        @error('email')
+            {{$message}}
+        @enderror
+        @error('password')
+            {{$message}}
+        @enderror
+    </div>
 </body>
 </html>

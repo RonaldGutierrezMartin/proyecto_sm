@@ -28,3 +28,5 @@ Route::get('/signup', [Usuarios::class ,"drawSignUp"])->name("signup");
 
 Route::post('/registerd', [Usuarios::class ,"createUser"])->name("register");
 
+Route::post('/verify', [Usuarios::class ,"userLog"])->name("verify");
+
