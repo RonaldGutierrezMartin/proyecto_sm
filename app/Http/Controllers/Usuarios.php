@@ -23,8 +23,7 @@ class Usuarios extends Controller
 
     function userLog(logUser $datos){
         $user = DB::table("usuarios")->select("*")->where("email", "=", $datos->email)->get();
-        dd($datos);
-        if($datos->password == $user->password){
+        if($datos->validator->data->password == $user->password){
             session(["user" => $user]);
             return view("main");
         }else{
