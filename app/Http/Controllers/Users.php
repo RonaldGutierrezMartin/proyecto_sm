@@ -26,7 +26,7 @@ class Users extends Controller
         if($data["password"] == $user[0]->password){
             $follows = DB::table("follows")->select("followed_id")->where("follower_id", "=", $user[0]->id)->get();
             session(["user" => $user]);
-            if(count($follows)!=0){
+            if(count($follows)!= 0){
                 $posts = [];
                 foreach($follows as $follow){
                     array_push($posts, DB::table("posts")->select("*")->where("user_id", "=", $follow->id_seguido)->get());
