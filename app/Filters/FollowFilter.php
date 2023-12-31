@@ -7,11 +7,13 @@ use App\Filters\ApiFilter;
 class FollowFilter extends ApiFilter{
 
     protected $safeParams =[
-        'id' => ['eq'],
-        'name' => ['eq'],
-        'email' => ['eq']
+        'followerId' => ['eq'],
+        'followedId' => ['eq']
     ];
-    protected $columnMap =[];
+    protected $columnMap =[
+        "followerId" => "follower_id",
+        "followedId" => "followed_id"
+    ];
     protected $operatorMap =[
         'eq' => '=',
         'lt' => '<',
