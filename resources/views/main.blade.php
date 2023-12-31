@@ -51,7 +51,12 @@
             <div class="postHead">
                 <div class="divPostUser">
                     <img src="" alt="profilePic" class="profilePic">
-                    <h4 class="h4UserName"></h4>
+                    <div class="divName">
+                        <h4 class="textName h4UserName"></h4>
+                        <h4 class="textName h4LastName1"></h4>
+                        <h4 class="textName h4LastName2"></h4>
+                    </div>
+                    
                 </div>
             </div>
             <div class="postContent">
@@ -65,8 +70,12 @@
                         <p class="likesAmount"></p>
                     </div>
                 </div>
+                <div class="divDate">
+                    <p>Published on:</p>
+                    <p class="pDatePosted"></p> 
+                </div>
                 
-                <p class="pDatePosted"></p> 
+                
             </div>
         </div>
     </template>
