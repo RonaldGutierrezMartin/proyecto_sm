@@ -7,29 +7,29 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\registerUser;
 use App\Http\Requests\logUser;
-use App\Models\Usuario;
+use App\Models\User;
 
-class Usuarios extends Controller
+class Users extends Controller
 {
     function drawSignUp(){
-        $tipos = DB::table("tiposusuario")->select("id", "nombre")->get();
-        return view("signUp", ["tipos" => $tipos]);
+        $types = DB::table("usertypes")->select("id", "name")->get();
+        return view("signUp", ["types" => $types]);
     }
 
-    function createUser(registerUser $datos){
-        Usuario::create($datos->all());
+    function createUser(registerUser $data){
+        User::create($data->all());
         return view("login", ["created" => "Se ha creado la cuenta."]);
     }
 
-    function userLog(logUser $datos){
-        $user = DB::table("usuarios")->select("*")->where("email", "=", $datos->email)->get();
-        if($datos["password"] == $user[0]->password){
-            $follows = DB::table("siguen")->select("id_seguido")->where("id_seguidor", "=", $user[0]->id)->get();
+    function userLog(logUser $data){
+        $user = DB::table("users")->select("*")->where("email", "=", $data->email)->get();
+        if($data["password"] == $user[0]->password){
+            $follows = DB::table("follows")->select("followed_id")->where("follower_id", "=", $user[0]->id)->get();
             session(["user" => $user]);
             if(count($follows)!=0){
                 $posts = [];
                 foreach($follows as $follow){
-                    array_push($posts, DB::table("publicaciones")->select("*")->where("id_usuario", "=", $follow->id_seguido)->get());
+                    array_push($posts, DB::table("posts")->select("*")->where("user_id", "=", $follow->id_seguido)->get());
                 }
                 return view("main", ["posts" => $posts, "follows" => $follows]);
             }else{

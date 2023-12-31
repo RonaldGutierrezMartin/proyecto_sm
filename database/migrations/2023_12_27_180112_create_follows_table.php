@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('siguen', function (Blueprint $table) {
+        Schema::create('follows', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("id_seguidor");
-            $table->unsignedBigInteger("id_seguido");
+            $table->unsignedBigInteger("follower_id");
+            $table->unsignedBigInteger("followed_id");
             $table->timestamps();
 
-            $table->foreign("id_seguidor")->references("id")->on("usuarios");
-            $table->foreign("id_seguido")->references("id")->on("usuarios");
+            $table->foreign("follower_id")->references("id")->on("users");
+            $table->foreign("followed_id")->references("id")->on("users");
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('siguen');
+        Schema::dropIfExists('follows');
     }
 };

@@ -6,23 +6,23 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class tiposUsuario extends Seeder
+class UserTypes extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table("tiposusuario")->insert([
-            "nombre" => "Admin",
+        DB::table("usertypes")->insert([
+            "name" => "Admin",
             "created_at" => now()
         ]);
-        DB::table("tiposusuario")->insert([
-            "nombre" => "Empresa",
+        DB::table("usertypes")->insert([
+            "name" => "Empresa",
             "created_at" => now()
         ]);
-        DB::table("tiposusuario")->insert([
-            "nombre" => "Particular",
+        DB::table("usertypes")->insert([
+            "name" => "Particular",
             "created_at" => now()
         ]);
     }

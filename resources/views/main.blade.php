@@ -18,13 +18,13 @@
     </nav>
     <main id="content">
         @forelse ($posts as $item)
-            @if($item[0]->imagen != "")
+            @if($item[0]->image != NULL)
 
             @else
             {{-- Solo crea el primer post, mirar como hacer para crear todos --}}
             {{-- Falta ver como pintar el usuario que hace el post y los botones de reacciones --}}
                 <section class="post">
-                    <p class="postTitle">{{$item[0]->contenido}}</p>
+                    <p class="postTitle">{{$item[0]->content}}</p>
                 </section>
             @endif
         @empty

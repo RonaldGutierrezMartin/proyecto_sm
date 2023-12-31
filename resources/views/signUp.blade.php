@@ -19,8 +19,8 @@
         
         <label for="id_tipo">Tipo de Usuario: </label>
         <select name="id_tipo" id="">
-            @foreach ($tipos as $tipo)
-                <option value="{{$tipo->id}}" @if ($tipo->nombre == "Particular") selected @endif>{{$tipo->nombre}}</option>
+            @foreach ($types as $type)
+                <option value="{{$type->id}}" @if ($type->name == "Particular") selected @endif>{{$type->name}}</option>
                 
             @endforeach
         </select>
@@ -43,8 +43,6 @@
         @error('paswordCheck')
             {{$message}}
         @enderror
-        
-        
     </div>
 </body>
 </html>

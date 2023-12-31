@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reaccionan', function (Blueprint $table) {
+        Schema::create('react', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("id_usuario");
-            $table->unsignedBigInteger("id_publicacion");
+            $table->unsignedBigInteger("user_id");
+            $table->unsignedBigInteger("post_id");
             $table->timestamps();
 
-            $table->foreign("id_usuario")->references("id")->on("usuarios");
-            $table->foreign("id_publicacion")->references("id")->on("publicaciones");
+            $table->foreign("user_id")->references("id")->on("users");
+            $table->foreign("post_id")->references("id")->on("posts");
         });
     }
 
