@@ -24,8 +24,8 @@ class registerUser extends FormRequest
         /* regex:^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$ PARA LA CONTRASENIA */
         return [
             "email" => ["unique:usuarios,email", "required"],
-            "nombre" =>["required"],
-            "primerApellido" => ["required"],
+            "name" =>["required"],
+            "lastName1" => ["required"],
             "password"=>["required", "min:4"],
             "passwordCheck"=>["required", "same:password"]
         ];
@@ -36,8 +36,8 @@ class registerUser extends FormRequest
         return[
             "email.unique" => "El email ya esta registrado",
             "email.required" => "Es necesario un email para registrarse",
-            "nombre.required" => "Es necesario un nombre para registrarse",
-            "primerApellido.required" => "Es necesario un apellido para registrarse",
+            "name.required" => "Es necesario un nombre para registrarse",
+            "lastName1.required" => "Es necesario un apellido para registrarse",
             "password.required" => "Es necesario una contraseña para registrarse",
             "password.min" => "La contraseña debe tener como mínimo 4 caracteres",
             "passwordCheck.requeired" => "Repita su contraseña",

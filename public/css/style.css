@@ -36,7 +36,8 @@ nav #userIcon, nav #camera, nav #browse{
 }
 #content{
     display: flex;
-    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }
 .post{
     background-image: linear-gradient(145deg, #fed5f0, #ff4bbe, #a343ed, #2d14b7, #aafbff, #7bfdff, 
@@ -46,4 +47,7 @@ nav #userIcon, nav #camera, nav #browse{
     background-clip: border-box;
     padding: 2.5%;
     margin: 5% 0;
+}
+.postTitle{
+    text-align: justify;
 }

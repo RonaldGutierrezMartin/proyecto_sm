@@ -11,14 +11,14 @@
     <form action="{{route('register')}}" method="POST" id="formularioSignUp">
         @csrf
         <label for="email">Email: </label><input type="email" name="email" >
-        <label for="nombre">Nombre: </label><input type="text" name="nombre" >
-        <label for="primerApellido">Primer Apellido: </label><input type="text" name="primerApellido">
-        <label for="segundoApellido">Segundo Apellido: </label><input type="text" name="segundoApellido">
+        <label for="name">Nombre: </label><input type="text" name="name" >
+        <label for="lastName1">Primer Apellido: </label><input type="text" name="lastName1">
+        <label for="lastName2">Segundo Apellido: </label><input type="text" name="lastName2">
         <label for="password">Password: </label><input type="password" name="password">
         <label for="passwordCheck">Password Check: </label><input type="password" name="passwordCheck">
         
-        <label for="id_tipo">Tipo de Usuario: </label>
-        <select name="id_tipo" id="">
+        <label for="type_id">Tipo de Usuario: </label>
+        <select name="type_id" id="">
             @foreach ($types as $type)
                 <option value="{{$type->id}}" @if ($type->name == "Particular") selected @endif>{{$type->name}}</option>
                 
@@ -31,10 +31,10 @@
         @error('email')
             {{$message}}
         @enderror
-        @error('nombre')
+        @error('name')
             {{$message}}
         @enderror
-        @error('primerApellido')
+        @error('lastName1')
             {{$message}}
         @enderror
         @error('password')
