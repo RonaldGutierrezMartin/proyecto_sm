@@ -15,8 +15,10 @@ use App\Filters\UserFilter;
 class Users extends Controller
 {
     function index(Request $request){
-        $users = User::paginate();
-        return new UserCollection($users);
+        $filter = new UserFilter();
+        $queryItems = $filter->transform($request);
+        $users = User::where($queryItems);
+        return new UserCollection($users->paginate()->appends($request->query()));
     }
 
     function drawSignUp(){
