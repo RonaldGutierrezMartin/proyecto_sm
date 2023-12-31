@@ -29,7 +29,7 @@ class Users extends Controller
             if(count($follows)!= 0){
                 $posts = [];
                 foreach($follows as $follow){
-                    array_push($posts, DB::table("posts")->select("*")->where("user_id", "=", $follow->id_seguido)->get());
+                    array_push($posts, DB::table("posts")->select("*")->where("user_id", "=", $follow->followed_id)->get());
                 }
                 return view("main", ["posts" => $posts, "follows" => $follows]);
             }else{

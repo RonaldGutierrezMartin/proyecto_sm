@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Usuarios;
-use App\Models\Usuario;
+use App\Http\Controllers\Users;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +24,11 @@ Route::get("/login", function(){
     return view("logIn");
 })->name("login");
 
-Route::get('/signup', [Usuarios::class ,"drawSignUp"])->name("signup");
+Route::get('/signup', [Users::class ,"drawSignUp"])->name("signup");
 
-Route::post('/registerd', [Usuarios::class ,"createUser"])->name("register");
+Route::post('/registerd', [Users::class ,"createUser"])->name("register");
 
 //Route::post('/main', [Usuarios::class ,"userLog"])->name("verify");
 
-Route::post('/verify', [Usuarios::class ,"userLog"])->name("verify");
+Route::post('/verify', [Users::class ,"userLog"])->name("verify");
 
