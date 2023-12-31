@@ -10,14 +10,18 @@
 <body>
     <header>
         <img src="{{asset('img/logo1.png')}}" alt="Logo de la Aplicacion" id="logo"/>
+        <h2 class="h2Header">Social Media</h2>
     </header>
     <nav id="nav">
         <img src="{{asset('img/camera.svg')}}" alt="Publicacion nueva" id="camera"/>
         <img src="{{asset('img/browse.svg')}}" alt="Buscador" id="browse"/>
         <img src="{{asset("img/user.svg")}}" alt="Icono de usuario" id="userIcon">
     </nav>
-    <main id="content">
-        @if (isset($posts))
+    
+    <main>
+
+
+        {{-- @if (isset($posts))
             
             @foreach ($posts as $post)
                 
@@ -26,8 +30,7 @@
                     @if($item->image != NULL)
                     
                     @else
-                    {{-- Solo crea el primer post, mirar como hacer para crear todos --}}
-                    {{-- Falta ver como pintar el usuario que hace el post y los botones de reacciones --}}
+                    
                         <section class="post">
                             <p class="postTitle">{{$item->content}}</p>
                         </section>
@@ -39,7 +42,38 @@
             @endforeach
         @else
             {{$warning}}
-        @endif
+        @endif --}}
+
     </main>
+    <footer>
+        
+    </footer>
+
+    <template id="templatePost">
+        <div class="divPost">
+            <div class="postHead">
+                <div class="divPostUser">
+                    <img src="" alt="profilePic" class="profilePic">
+                    <h4 class="h4UserName"></h4>
+                </div>
+            </div>
+            <div class="postContent">
+                <img src="" alt="postImg" class="postImg">
+                <p class="pContent"></p>
+            </div>
+            <div class="postFooter">
+                <div class="divReactions">
+                    <div class="divLikes">
+                        <button class="btnLike"><img src="" alt="imgLike" class="imgBtnLike"></button>
+                        <p class="likesAmount"></p>
+                    </div>
+                </div>
+                
+                <p class="pDatePosted"></p> 
+            </div>
+        </div>
+    </template>
+
+    <script src="{{asset('js/scriptMain.js')}}"></script>
 </body>
 </html>
