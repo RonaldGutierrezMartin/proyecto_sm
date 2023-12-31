@@ -11,11 +11,11 @@ class User extends Model
     protected $guarded = ["token"];
 
     /**
-     * Get all of the publicaciones for the Usuario
+     * Get all of the posts for the Usuario
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function publicaciones()
+    public function posts()
     {
         return $this->hasMany(Post::class);
     }

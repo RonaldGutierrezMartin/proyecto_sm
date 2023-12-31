@@ -7,10 +7,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\registerUser;
 use App\Http\Requests\logUser;
+use App\Http\Resources\UserCollection;
 use App\Models\User;
+use App\Filters\UserFilter;
+
 
 class Users extends Controller
 {
+    function index(Request $request){
+        $users = User::paginate();
+        return new UserCollection($users);
+    }
+
     function drawSignUp(){
         $types = DB::table("usertypes")->select("id", "name")->get();
         return view("signUp", ["types" => $types]);
@@ -26,7 +34,7 @@ class Users extends Controller
         if($data["password"] == $user[0]->password){
             $follows = DB::table("follows")->select("followed_id")->where("follower_id", "=", $user[0]->id)->get();
             session(["user" => $user]);
-            if(count($follows)!=0){
+            if(count($follows)!= 0){
                 $posts = [];
                 foreach($follows as $follow){
                     array_push($posts, DB::table("posts")->select("*")->where("user_id", "=", $follow->followed_id)->get());

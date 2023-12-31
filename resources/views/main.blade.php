@@ -26,7 +26,6 @@
             @foreach ($posts as $post)
                 
                 @foreach($post as $item )
-               
                     @if($item->image != NULL)
                     
                     @else
@@ -37,8 +36,6 @@
 
                     @endif
                 @endforeach        
-            
-                
             @endforeach
         @else
             {{$warning}}
