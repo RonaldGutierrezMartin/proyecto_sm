@@ -7,10 +7,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\registerUser;
 use App\Http\Requests\logUser;
+use App\Http\Resources\UserCollection;
 use App\Models\User;
+use App\Filters\UserFilter;
+
 
 class Users extends Controller
 {
+    function index(Request $request){
+        $users = User::paginate();
+        return new UserCollection($users);
+    }
+
     function drawSignUp(){
         $types = DB::table("usertypes")->select("id", "name")->get();
         return view("signUp", ["types" => $types]);

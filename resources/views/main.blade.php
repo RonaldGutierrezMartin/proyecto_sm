@@ -17,12 +17,9 @@
         <img src="{{asset("img/user.svg")}}" alt="Icono de usuario" id="userIcon">
     </nav>
     <main id="content">
-        @if (isset($posts))
-            
-            @foreach ($posts as $post)
-                
+        @if (isset($posts))           
+            @foreach ($posts as $post)               
                 @foreach($post as $item )
-               
                     @if($item->image != NULL)
                     
                     @else
@@ -34,8 +31,6 @@
 
                     @endif
                 @endforeach        
-            
-                
             @endforeach
         @else
             {{$warning}}
