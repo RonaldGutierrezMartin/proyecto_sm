@@ -17,7 +17,7 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
-        $file = asset(":8000/img/kobe.webp");
+        $file = "http://127.0.0.1:8000/img/kobe.webp";
         $random = $this->faker->numberBetween(0,1);
         return [
             'user_id' => User::factory(),
