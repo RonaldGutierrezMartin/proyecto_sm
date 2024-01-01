@@ -79,6 +79,8 @@
             </div>
         </div>
     </template>
+    <template class="templateCreatePost">
+    </template>
 
     <script src="{{asset('js/scriptMain.js')}}"></script>
 </body>
