@@ -143,3 +143,7 @@ main{
     margin-right: 5px;
 
 }
+.pContent{
+    width: 80%;
+    text-align: justify;
+}

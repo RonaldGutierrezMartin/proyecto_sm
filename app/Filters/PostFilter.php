@@ -7,16 +7,8 @@ use App\Filters\ApiFilter;
 class PostFilter extends ApiFilter{
 
     protected $safeParams =[
-        'id' => ['eq'],
-        'user_id' => ['eq'],
+        'id' => ['='],
+        'user_id' => ['='],
         /* Buscar como filtrar por contenido */
-    ];
-    protected $columnMap =[];
-    protected $operatorMap =[
-        'eq' => '=',
-        'lt' => '<',
-        'lte' => '<=',
-        'gt' => '>', 
-        'gte' => '>='
     ];
 }
