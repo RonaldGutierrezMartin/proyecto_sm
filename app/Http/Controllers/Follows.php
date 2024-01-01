@@ -14,6 +14,6 @@ class Follows extends Controller
         $filter = new FollowFilter();
         $queryItems = $filter->transform($request);
         $follows = Follow::where($queryItems);
-        return new FollowCollection($follows->paginate()->appends($request->query()));
+        return new FollowCollection($follows->paginate(25)->appends($request->query()));
     }
 }

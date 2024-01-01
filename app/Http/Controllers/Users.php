@@ -8,17 +8,29 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\registerUser;
 use App\Http\Requests\logUser;
 use App\Http\Resources\UserCollection;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Filters\UserFilter;
-
+use GuzzleHttp\Psr7\Query;
 
 class Users extends Controller
 {
     function index(Request $request){
         $filter = new UserFilter();
         $queryItems = $filter->transform($request);
-        $users = User::where($queryItems);
-        return new UserCollection($users->paginate()->appends($request->query()));
+        if(count($queryItems) > 0){
+            $user = User::find($queryItems[0][2]);
+            return new UserResource($user);
+        }else{
+            $users = User::all();
+            $data = [];
+            foreach($users as $user){
+                $userModel = User::find($user->id);
+                $userData = new UserResource($userModel);
+                array_push($data, $userData);
+            }
+            return $data;
+        }
     }
 
     function drawSignUp(){
