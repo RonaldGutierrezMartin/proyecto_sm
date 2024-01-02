@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\DB;
 
-class UserResource extends JsonResource
+class CurrentUserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -25,7 +25,13 @@ class UserResource extends JsonResource
         foreach($followers as $follow){
             array_push($parsedFollowers, $follow->follower_id);
         }
-        $posts = DB::table("posts")->select("id", "user_id", "image", "content", "created_at")->where("user_id", "=", $this->id)->get();
+        $postsFollowed = [];
+        foreach($parsedFollows as $follow){
+            $posts = DB::table("posts")->select("id", "user_id", "image", "content", "created_at")->where("user_id", "=", $this->id)->get();
+            foreach($posts as $post){
+                array_push($postsFollowed, $post);
+            }
+        }
         return [
             "id" => $this->id,
             "name" => $this->name,
@@ -34,7 +40,7 @@ class UserResource extends JsonResource
             "email" => $this->email,
             "follows" => $parsedFollows,
             "followers" => $parsedFollowers,
-            "posts" => $posts,
+            "posts" => $postsFollowed,
         ];
     }
 }

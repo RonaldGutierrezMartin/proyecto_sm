@@ -12,6 +12,7 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Filters\UserFilter;
 use GuzzleHttp\Psr7\Query;
+use Illuminate\Support\Facades\Session;
 
 class Users extends Controller
 {
@@ -30,6 +31,7 @@ class Users extends Controller
                 array_push($data, $userData);
             }
             return $data;
+
         }
     }
 
@@ -47,7 +49,7 @@ class Users extends Controller
         $user = DB::table("users")->select("*")->where("email", "=", $data->email)->get();
         if($data["password"] == $user[0]->password){
             $follows = DB::table("follows")->select("followed_id")->where("follower_id", "=", $user[0]->id)->get();
-            session(["user" => $user]);
+            Session::put("user", $user);
             if(count($follows)!= 0){
                 $posts = [];
                 foreach($follows as $follow){
@@ -62,4 +64,6 @@ class Users extends Controller
             return view("login", ["error" => "La contraseña no es correcta."]);
         }
     }
+
+    
 }

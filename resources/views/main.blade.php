@@ -20,7 +20,6 @@
     
     <main>
 
-
         {{-- @if (isset($posts))
             
             @foreach ($posts as $post)
